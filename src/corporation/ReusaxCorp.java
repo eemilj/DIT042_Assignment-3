@@ -13,12 +13,13 @@ public class ReusaxCorp {
         Employee newEmployee = new Employee(name, ID, gs);
         employeeRegister.add(newEmployee);
 
+
     }
 
     public Employee retrieveEmployee(String ID){
 
         for ( int i = 0 ; i < employeeRegister.size(); i++) {
-            if (employeeRegister.get(i).equals(ID)) {
+            if (employeeRegister.get(i).equalsID(ID)) {
                 return employeeRegister.get(i);
             }
         }

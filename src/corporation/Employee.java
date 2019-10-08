@@ -1,5 +1,6 @@
 package corporation;
 
+import javax.swing.*;
 import java.util.Objects;
 
 public class Employee {
@@ -48,14 +49,26 @@ public class Employee {
         return this.name + "’s gross salary is of " + this.grossSalary + " SEK per month.";
     }
 
-    @Override
-    public boolean equals(Object o) {
+   // @Override
+   /* public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Employee)) return false;
         Employee employee = (Employee) o;
-
-        // what does that do??
-        return Objects.equals(id, employee.id);
+        return Double.compare(employee.grossSalary, grossSalary) == 0 &&
+                Objects.equals(name, employee.name) &&
+                Objects.equals(id, employee.id);
     }
+
+    */
+
+
+    public boolean equalsID(String id){
+       if (this.id.equals(id)){
+           return true;
+        } else {
+           return false;
+        }
+    }
+
 
 }

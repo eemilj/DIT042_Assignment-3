@@ -34,7 +34,8 @@ public class CorpMain {
 
             switch (input) {
                 case REGISTER_EMPLOYEE:
-                    company.registerEmployee("Chris", "CH40", 5000);
+                    company.registerEmployee("Chris", "AAA", 5000);
+
 
                     break;
 
@@ -43,7 +44,7 @@ public class CorpMain {
                     break;
 
                 case RETRIEVE_EMPLOYEE:
-                    System.out.println(company.retrieveEmployee("CH40"));
+                    System.out.println(company.retrieveEmployee("AAA"));
 
                     break;
 
