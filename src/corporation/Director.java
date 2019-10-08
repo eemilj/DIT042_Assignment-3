@@ -1,13 +1,11 @@
 package corporation;
 
-public class Director extends Employee {
+public class Director extends Manager {
 
-    private String degree;
     private String department;
 
     public Director(String department, String degree, String name, String id, double grossSalary) {
-        super(name, id, grossSalary);
-        this.degree = degree;
+        super(name, id, grossSalary, degree);
         this.department = department;
     }
 }
