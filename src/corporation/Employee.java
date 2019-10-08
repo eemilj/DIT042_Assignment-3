@@ -11,7 +11,6 @@ public class Employee {
         this.name = name;
         this.id = id;
         this.grossSalary = grossSalary;
-        netSalary();
     }
 
     //Getters
@@ -37,15 +36,13 @@ public class Employee {
     }
 
     //Method to calculate and return netSalary
-    public double netSalary() {
+    public double getNetSalary() {
         double netSalary = this.grossSalary - (this.grossSalary * 0.1);
         return netSalary;
     }
 
     //Method to return print message
-    public String printSalary() {
-        String printSalary = this.name + "’s gross salary is of " + this.grossSalary + " SEK per month.";
-        return printSalary;
-
+    public String toString() {
+        return this.name + "’s gross salary is of " + this.grossSalary + " SEK per month.";
     }
 }
