@@ -1,5 +1,7 @@
 package corporation;
 
+import java.util.Objects;
+
 public class Employee {
 
     private String name;
@@ -45,4 +47,15 @@ public class Employee {
     public String toString() {
         return this.name + "’s gross salary is of " + this.grossSalary + " SEK per month.";
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+
+        // what does that do??
+        return Objects.equals(id, employee.id);
+    }
+
 }

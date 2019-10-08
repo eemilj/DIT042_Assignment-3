@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class ReusaxCorp {
 
-    public ReusaxCorp company = new ReusaxCorp();
+
 
     ArrayList <Employee> employeeRegister = new ArrayList<Employee>();
 
@@ -15,7 +15,19 @@ public class ReusaxCorp {
 
     }
 
+    public Employee retrieveEmployee(String ID){
+
+        for ( int i = 0 ; i < employeeRegister.size(); i++) {
+            if (employeeRegister.get(i).equals(ID)) {
+                return employeeRegister.get(i);
+            }
+        }
+            return null;
+        }
+
+
 
 
 }
+
 
