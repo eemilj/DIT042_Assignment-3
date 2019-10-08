@@ -2,6 +2,7 @@ package corporation;
 
 public class Employee {
 
+    private String name;
     private String ID;
     private double grossSalary;
 
