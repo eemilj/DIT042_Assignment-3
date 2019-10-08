@@ -3,13 +3,13 @@ package corporation;
 public class Employee {
 
     private String name;
-    private String ID;
+    private String id;
     private double grossSalary;
 
-    public Employee(String name, String ID, double grossSalary) {
+    public Employee(String name, String id, double grossSalary) {
 
         this.name = name;
-        this.ID = ID;
+        this.id = id;
         this.grossSalary = grossSalary;
         netSalary();
     }
@@ -20,7 +20,7 @@ public class Employee {
     }
 
     public String getID() {
-        return this.ID;
+        return this.id;
     }
 
     public double getGrossSalary() {
