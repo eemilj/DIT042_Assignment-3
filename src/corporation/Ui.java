@@ -1,7 +1,8 @@
 package corporation;
+
 import java.util.Scanner;
 
-public class CorpMain {
+public class Ui {
 
     Scanner scanner = new Scanner(System.in);
 
