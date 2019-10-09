@@ -45,7 +45,21 @@ public class ReusaxCorp {
 
         return expenses;
     }
+    //Method to update the name of an employee
+    public void updateEmployeeName(String ID, String name){
+        Employee retrivedEmployee = retrieveEmployee(ID);
+        if (retrivedEmployee != null){
+            retrivedEmployee.setName(name);
+        }
 
+    }
+    //Method to update the Gross Salary of an employee
+    public void updateEmployeeSalary(String ID, double salary){
+        Employee retrivedEmployee = retrieveEmployee(ID);
+        if (retrivedEmployee != null){
+            retrivedEmployee.setGrossSalary(salary);
+        }
+    }
 
 
 

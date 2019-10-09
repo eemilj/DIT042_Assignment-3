@@ -16,10 +16,6 @@ public class CorpMain {
     Scanner scanner = new Scanner(System.in);
     ReusaxCorp company = new ReusaxCorp();
 
-
-
-
-
     public void run(){
         int input;
 
@@ -42,7 +38,7 @@ public class CorpMain {
                     break;
 
                 case UPDATE_EMPLOYEE:
-
+                    updateEmployee();
                     break;
 
                 case CALCULATE_EXPENSES:
@@ -61,8 +57,6 @@ public class CorpMain {
                     return;
 
                 default:
-
-
             }
         }while(input != QUIT);
     }
@@ -76,9 +70,6 @@ public class CorpMain {
             System.out.println("5. Calculate Net expenses");
             System.out.println("6. Retrieve amount of employees");
             System.out.println("7. QUIT");
-
-
-
 
         }
         public static void main(String[] args){
@@ -96,6 +87,28 @@ public class CorpMain {
         return userInput;
     }
 
+    private int readInputInt(String userMessage) {
+
+        int userInput;
+
+        System.out.println(userMessage);
+        userInput = scanner.nextInt();
+        scanner.nextLine();
+
+        return userInput;
+    }
+
+    private double readInputDouble(String userMessage) {
+
+        double userInput;
+
+        System.out.println(userMessage);
+        userInput = scanner.nextInt();
+        scanner.nextLine();
+
+        return userInput;
+    }
+
     private void registerEmployee (){
         String name = readInput("What's the name of the employee?");
         String id = readInput("What's the id of the employee?");
@@ -104,7 +117,6 @@ public class CorpMain {
         company.registerEmployee(name, id, salary);
 
         System.out.println("Successfully added " + name );
-
     }
 
     private void removeEmployee(){
@@ -117,8 +129,38 @@ public class CorpMain {
         System.out.println(company.retrieveEmployee(id));
     }
 
+    private final int UPDATE_NAME = 1;
+    private final int UPDATE_SALARY = 2;
+    private final int FINISH = 3;
 
+    public void updateEmployee(){
 
+        int input;
+        do {
+            input = readInputInt("What do you want to update?" + System.lineSeparator() +
+                            "1. Update Name" + System.lineSeparator() +
+                            "2. Update Salary" + System.lineSeparator() +
+                            "3. Finished With Updating");
 
+            switch (input) {
+                case UPDATE_NAME:
+                    String ID = readInput("What's the id of the employee?");
+                    String name = readInput("What's the new name of the employee?");
+                    company.updateEmployeeName(ID, name);
+                    break;
 
+                case UPDATE_SALARY:
+                    String ID2 = readInput("What's the id of the employee?");
+                    double salary = readInputDouble("What's the new salary of the employee?");
+                    company.updateEmployeeSalary(ID2, salary);
+                    break;
+
+                case FINISH:
+                    System.out.println("Changes are updated!");
+                    return;
+
+                default:
+            }
+        }while(input != QUIT);
+    }
 }
