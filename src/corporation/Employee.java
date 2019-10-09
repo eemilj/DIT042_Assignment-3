@@ -45,29 +45,17 @@ public class Employee {
     }
 
     //Method to return print message
+    @Override
     public String toString() {
         return this.name + "’s gross salary is of " + this.grossSalary + " SEK per month.";
     }
 
-   // @Override
-   /* public boolean equals(Object o) {
+    @Override
+    public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Employee)) return false;
         Employee employee = (Employee) o;
-        return Double.compare(employee.grossSalary, grossSalary) == 0 &&
-                Objects.equals(name, employee.name) &&
-                Objects.equals(id, employee.id);
-    }
-
-    */
-
-
-    public boolean equalsID(String id){
-       if (this.id.equals(id)){
-           return true;
-        } else {
-           return false;
-        }
+        return Objects.equals(id, employee.id);
     }
 
 

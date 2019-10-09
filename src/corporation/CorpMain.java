@@ -14,44 +14,30 @@ public class CorpMain {
     private final int QUIT = 7;
 
     Scanner scanner = new Scanner(System.in);
+    ReusaxCorp company = new ReusaxCorp();
 
-    public  String readInput(String userMessage) {
 
-        String userInput = "";
 
-        System.out.println(userMessage);
-        userInput = scanner.nextLine();
-
-        return userInput;
-    }
 
 
     public void run(){
         int input;
-        ReusaxCorp comp = new ReusaxCorp();
+
         do {
             printMenuOptions();
             input = Integer.parseInt(readInput("Type the option number: "));
 
             switch (input) {
                 case REGISTER_EMPLOYEE:
-
-                    String name = readInput("What's the name of the employee?");
-                    String id = readInput("What's the id of the employee?");
-                    double salary = Double.parseDouble(readInput("What's the salary of the employee?"));
-
-                    comp.registerEmployee(name, id, salary);
-
-                    System.out.println("Successfully added " + name );
-
+                    registerEmployee();
                     break;
 
                 case REMOVE_EMPLOYEE:
-
+                    removeEmployee();
                     break;
 
                 case RETRIEVE_EMPLOYEE:
-                    System.out.println(comp.retrieveEmployee("dick"));
+                    retrieveEMployee();
 
                     break;
 
@@ -60,8 +46,11 @@ public class CorpMain {
                     break;
 
                 case CALCULATE_EXPENSES:
+                    calculateNetExpenses();
 
                     break;
+
+
 
                 case NUMBER_OF_EMPLOYEES:
 
@@ -84,7 +73,7 @@ public class CorpMain {
             System.out.println("2. Remove an employee");
             System.out.println("3. Retrieve an employee");
             System.out.println("4. Update employee information");
-            System.out.println("5. Calculate expenses");
+            System.out.println("5. Calculate Net expenses");
             System.out.println("6. Retrieve amount of employees");
             System.out.println("7. QUIT");
 
@@ -96,4 +85,54 @@ public class CorpMain {
         CorpMain program = new CorpMain();
         program.run();
         }
+
+    private String readInput(String userMessage) {
+
+        String userInput = "";
+
+        System.out.println(userMessage);
+        userInput = scanner.nextLine();
+
+        return userInput;
+    }
+
+    private void registerEmployee (){
+        String name = readInput("What's the name of the employee?");
+        String id = readInput("What's the id of the employee?");
+        double salary = Double.parseDouble(readInput("What's the salary of the employee?"));
+
+        company.registerEmployee(name, id, salary);
+
+        System.out.println("Successfully added " + name );
+
+    }
+
+    private void removeEmployee(){
+        String id = readInput("Which Employee do you want to remove? (ID): ");
+        company.removeEmployee(id);
+    }
+
+    private void retrieveEMployee(){
+        String id = readInput("Which Employee do you want to remove? (ID): ");
+        System.out.println(company.retrieveEmployee(id));
+    }
+
+    private void calculateExpenses(){
+        String salary = readInput("Do you want to calculate the Gross Salary or Net Salary? (GroS / NetS): ");
+        if (salary.equals("GroS")){
+            double netExpenses = company.getExpenses("GroS");
+            System.out.println("The total expeses in paying net. salaries is: " + netExpenses);
+        } else if (salary.equals("NetS")){
+            double grosExpenses = company.getExpemses("NetS");
+            System.out.println("The total expeses in paying Gross. salaries is: " + grosExpenses);
+        } else {
+            System.out.println("Error: Invalid Input!");
+        }
+
+
+        // lets make it one mathod for both expeneses in RCorp with input
+    }
+
+
+
 }
