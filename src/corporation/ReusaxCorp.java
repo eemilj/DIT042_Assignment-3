@@ -6,29 +6,33 @@ import java.util.ArrayList;
 public class ReusaxCorp {
 
 
+    public ArrayList<Employee> employeeRegister = new ArrayList<>();
 
-    ArrayList <Employee> employeeRegister = new ArrayList<Employee>();
-
-    public void registerEmployee(String name, String ID, double gs){
+    public void registerEmployee(String name, String ID, double gs) {
         Employee newEmployee = new Employee(name, ID, gs);
         employeeRegister.add(newEmployee);
-
-
     }
 
-    public Employee retrieveEmployee(String ID){
 
-        for ( int i = 0 ; i < employeeRegister.size(); i++) {
-            if (employeeRegister.get(i).equalsID(ID)) {
+    public Employee retrieveEmployee(String ID) {
+        for (int i = 0; i < employeeRegister.size(); i++) {
+            if (employeeRegister.get(i).getID().equals(ID)) {
                 return employeeRegister.get(i);
             }
         }
-            return null;
+        return null;
+    }
+
+    public void removeEmployee (String ID){
+        Employee temp = retrieveEmployee(ID);
+        if (temp != null){
+            employeeRegister.remove(temp);
         }
+    }
 
 
 
+ }
 
-}
 
 
