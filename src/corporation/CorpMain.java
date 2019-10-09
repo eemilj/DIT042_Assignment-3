@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class CorpMain {
 
-    ReusaxCorp company = new ReusaxCorp();
+
 
     private final int REGISTER_EMPLOYEE = 1;
     private final int REMOVE_EMPLOYEE = 2;
@@ -15,7 +15,7 @@ public class CorpMain {
 
     Scanner scanner = new Scanner(System.in);
 
-    public String readInput(String userMessage) {
+    public  String readInput(String userMessage) {
 
         String userInput = "";
 
@@ -25,17 +25,24 @@ public class CorpMain {
         return userInput;
     }
 
+
     public void run(){
         int input;
-
+        ReusaxCorp comp = new ReusaxCorp();
         do {
             printMenuOptions();
             input = Integer.parseInt(readInput("Type the option number: "));
 
             switch (input) {
                 case REGISTER_EMPLOYEE:
-                    company.registerEmployee("Chris", "AAA", 5000);
 
+                    String name = readInput("What's the name of the employee?");
+                    String id = readInput("What's the id of the employee?");
+                    double salary = Double.parseDouble(readInput("What's the salary of the employee?"));
+
+                    comp.registerEmployee(name, id, salary);
+
+                    System.out.println("Successfully added " + name );
 
                     break;
 
@@ -44,7 +51,7 @@ public class CorpMain {
                     break;
 
                 case RETRIEVE_EMPLOYEE:
-                    System.out.println(company.retrieveEmployee("AAA"));
+                    System.out.println(comp.retrieveEmployee("dick"));
 
                     break;
 
@@ -79,7 +86,7 @@ public class CorpMain {
             System.out.println("4. Update employee information");
             System.out.println("5. Calculate expenses");
             System.out.println("6. Retrieve amount of employees");
-            System.out.println("7.QUIT");
+            System.out.println("7. QUIT");
 
 
 

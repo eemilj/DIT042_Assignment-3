@@ -5,9 +5,9 @@ import java.util.Objects;
 
 public class Employee {
 
-    private String name;
-    private String id;
-    private double grossSalary;
+    protected String name;
+    protected String id;
+    protected double grossSalary;
 
     public Employee(String name, String id, double grossSalary) {
 
