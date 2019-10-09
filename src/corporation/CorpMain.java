@@ -46,7 +46,7 @@ public class CorpMain {
                     break;
 
                 case CALCULATE_EXPENSES:
-                    calculateNetExpenses();
+
 
                     break;
 
@@ -117,21 +117,7 @@ public class CorpMain {
         System.out.println(company.retrieveEmployee(id));
     }
 
-    private void calculateExpenses(){
-        String salary = readInput("Do you want to calculate the Gross Salary or Net Salary? (GroS / NetS): ");
-        if (salary.equals("GroS")){
-            double netExpenses = company.getExpenses("GroS");
-            System.out.println("The total expeses in paying net. salaries is: " + netExpenses);
-        } else if (salary.equals("NetS")){
-            double grosExpenses = company.getExpemses("NetS");
-            System.out.println("The total expeses in paying Gross. salaries is: " + grosExpenses);
-        } else {
-            System.out.println("Error: Invalid Input!");
-        }
 
-
-        // lets make it one mathod for both expeneses in RCorp with input
-    }
 
 
 
