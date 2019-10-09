@@ -156,7 +156,7 @@ public class CorpMain {
                     break;
 
                 case FINISH:
-                    System.out.println("Changes are updated!");
+                    System.out.println("Changes are updated!" + System.lineSeparator());
                     return;
 
                 default:
