@@ -2,6 +2,8 @@ package corporation;
 
 public class Intern extends Employee {
 
+    private double internBenefit;
+    private double internSalary = getGrossSalary() + getInternBenefit();
     private int gpa;
 
     public Intern(String name, String id, double grossSalary, int gpa){
@@ -13,17 +15,19 @@ public class Intern extends Employee {
         return this.gpa;
     }
 
-    public void setGpa(String userInput){
-        this.gpa =  Integer.parseInt(userInput);
+    public void setGpa(String endUserInput){
+        this.gpa = Integer.parseInt(endUserInput);
     }
 
-    public void setInternSalary(){
+    public double getInternBenefit(){
 
-        if(getGpa()<=5){
-            setGrossSalary(0);
-        }if(getGpa()>=8){
-            double internSalary = getGrossSalary();
-            setGrossSalary(internSalary + 1000);
-        }
+        if(this.gpa<=5){
+            internBenefit = (-1) * (getGrossSalary());
+        }else if(this.gpa>=8){
+            internBenefit = 1000;
+        }else
+            internBenefit = 0;
+
+        return internBenefit;
     }
 }
