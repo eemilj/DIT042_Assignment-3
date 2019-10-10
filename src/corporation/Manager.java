@@ -10,12 +10,13 @@ public class Manager extends Employee {
         super(name, id, grossSalary);
         this.degree = degree;
         setManBenefit();
-        managerPay = super.grossSalary + this.manBenefit;
+        setManagerPay();
     }
 
     public void setDegree(String endUserInput){
         this.degree = endUserInput;
         setManBenefit();
+        setManagerPay();
     }
     public String getDegree(){
         return this.degree;
@@ -33,6 +34,9 @@ public class Manager extends Employee {
         }else if(this.degree.equals("PhD")){
             manBenefit = this.grossSalary*0.35;
         }
+    }
+    public void setManagerPay(){
+        managerPay = super.grossSalary + this.manBenefit;
     }
     @Override
     public double getGrossSalary(){
