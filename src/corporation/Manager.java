@@ -10,7 +10,7 @@ public class Manager extends Employee {
         super(name, id, grossSalary);
         this.degree = degree;
         manBenefit = getManBenefit();
-        managerPay = getManagerPay();
+        managerPay = super.grossSalary + this.manBenefit;
     }
 
     public void setDegree(String endUserInput){
@@ -18,10 +18,6 @@ public class Manager extends Employee {
     }
     public String getDegree(){
         return this.degree;
-    }
-    public double getManagerPay(){
-       managerPay =  super.grossSalary + this.manBenefit;
-       return managerPay;
     }
 
     public double getManBenefit(){

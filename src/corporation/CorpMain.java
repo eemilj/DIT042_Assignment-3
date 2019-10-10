@@ -142,7 +142,7 @@ public class CorpMain {
     }
 
     private void retrieveEMployee(){
-        String id = readInput("Which Employee do you want to remove? (ID): ");
+        String id = readInput("Which Employee do you want to retrieve? (ID): ");
         Employee temp = company.retrieveEmployee(id);
         if (temp != null){
             System.out.println(temp);
