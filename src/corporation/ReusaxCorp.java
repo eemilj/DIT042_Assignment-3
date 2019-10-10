@@ -91,8 +91,9 @@ public class ReusaxCorp {
 
     public void updateDegree(String ID, String degree){
         Employee retrievedEmployee = retrieveEmployee(ID);
-        if(retrievedEmployee != null){
-            retrievedEmployee.setDegree(degree);
+        if(retrievedEmployee != null && retrievedEmployee instanceof Manager) {
+            Manager retrievedEmployeeManager = (Manager) retrievedEmployee;
+            retrievedEmployeeManager.setDegree(degree);
         }
 
     }
