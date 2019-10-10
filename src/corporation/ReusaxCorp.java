@@ -27,6 +27,19 @@ public class ReusaxCorp {
         Employee newEmployee = new Employee(name, ID, gs);
         employeeRegister.add(newEmployee);
     }
+    public void registerManager(String name, String ID, double gs, String degree){
+        Manager newManager = new Manager(name, ID, gs, degree);
+        employeeRegister.add(newManager);
+    }
+    public void registerIntern(String name, String ID, double gs, int gpa){
+        Intern newIntern = new Intern(name, ID, gs, gpa);
+        employeeRegister.add(newIntern);
+    }
+    public void registerDirector(String name, String ID, double gs, String degree, String department){
+        Director newDirector = new Director(name, ID, gs, degree, department);
+        employeeRegister.add(newDirector);
+    }
+
 
 
     public Employee retrieveEmployee(String ID) {
@@ -114,7 +127,11 @@ public class ReusaxCorp {
     }
 
     public void updateGpa(String ID, int Gpa){
-
+        Employee retrievedEmployee = retrieveEmployee(ID);
+        if(retrievedEmployee != null && retrievedEmployee instanceof Intern){
+            Intern retrievedEmployeeIntern = (Intern) retrievedEmployee;
+            retrievedEmployeeIntern.setGpa(Gpa);
+        }
 
     }
 
