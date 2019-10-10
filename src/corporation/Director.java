@@ -11,12 +11,12 @@ public class Director extends Manager {
     public Director(String name, String id, double grossSalary, String degree, String department) {
         super(name, id, grossSalary,degree);
         this.department = department;
-        dirPay = getDirPay();
+        setDirPay();
 
     }
-    public double getDirPay(){
-        dirPay =  getGrossSalary() + getManBenefit() + ReusaxCorp.getDirectorBenefit();
-        return dirPay;
+    public void setDirPay(){
+        dirPay =  super.getGrossSalary() + ReusaxCorp.getDirectorBenefit();
+
     }
     public void setDepartment(String endUserInput){
         this.department = endUserInput;
