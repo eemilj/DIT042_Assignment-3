@@ -47,7 +47,7 @@ public class Employee {
     //Method to return print message
     @Override
     public String toString() {
-        return this.name + "’s gross salary is of " + this.grossSalary + " SEK per month.";
+        return this.name + "’s gross salary is of " + getGrossSalary() + " SEK per month.";
     }
 
     @Override
