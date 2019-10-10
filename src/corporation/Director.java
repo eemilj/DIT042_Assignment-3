@@ -30,4 +30,18 @@ public class Director extends Manager {
         return this.dirPay;
     }
 
+    @Override
+    public double getNetSalary() {
+
+        if (this.dirPay < 30000){
+            return (dirPay * 0.9);
+        } else if (this.dirPay <= 50000){
+            return  (dirPay * 0.8);
+        } else {
+            double temp = dirPay - 30000;
+            double netSalary = 30000 * 0.8 + temp * 0.6;
+            return netSalary;
+        }
+
+    }
 }
