@@ -50,17 +50,17 @@ public class ReusaxCorp {
     }
     //Method to update the name of an employee
     public void updateEmployeeName(String ID, String name){
-        Employee retrivedEmployee = retrieveEmployee(ID);
-        if (retrivedEmployee != null){
-            retrivedEmployee.setName(name);
+        Employee retrievedEmployee = retrieveEmployee(ID);
+        if (retrievedEmployee != null){
+            retrievedEmployee.setName(name);
         }
 
     }
     //Method to update the Gross Salary of an employee
     public void updateEmployeeSalary(String ID, double salary){
-        Employee retrivedEmployee = retrieveEmployee(ID);
-        if (retrivedEmployee != null){
-            retrivedEmployee.setGrossSalary(salary);
+        Employee retrievedEmployee = retrieveEmployee(ID);
+        if (retrievedEmployee != null){
+            retrievedEmployee.setGrossSalary(salary);
         }
     }
 
@@ -89,9 +89,24 @@ public class ReusaxCorp {
         return employeeRegister.size();
     }
 
+    public void updateDegree(String ID, String degree){
+        Employee retrievedEmployee = retrieveEmployee(ID);
+        if(retrievedEmployee != null){
+            retrievedEmployee.setDegree(degree);
+        }
+
+    }
+
+    public void updateGpa(String ID, int Gpa){
+
+
+    }
+
+    public void updateDirBenefit(){
 
 
 
+    }
 
 
 
