@@ -9,18 +9,22 @@ public class Manager extends Employee {
     public Manager(String name, String id, double grossSalary, String degree) {
         super(name, id, grossSalary);
         this.degree = degree;
-        manBenefit = getManBenefit();
+        setManBenefit();
         managerPay = super.grossSalary + this.manBenefit;
     }
 
     public void setDegree(String endUserInput){
         this.degree = endUserInput;
+        setManBenefit();
     }
     public String getDegree(){
         return this.degree;
     }
-
     public double getManBenefit(){
+        return this.manBenefit;
+    }
+
+    public void setManBenefit(){
 
         if(this.degree.equals("BSc")){
             manBenefit = this.grossSalary*0.1;
@@ -29,7 +33,6 @@ public class Manager extends Employee {
         }else if(this.degree.equals("PhD")){
             manBenefit = this.grossSalary*0.35;
         }
-        return this.manBenefit;
     }
     @Override
     public double getGrossSalary(){

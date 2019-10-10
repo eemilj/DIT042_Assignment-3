@@ -33,7 +33,7 @@ public class CorpMain {
                     break;
 
                 case RETRIEVE_EMPLOYEE:
-                    retrieveEMployee();
+                    retrieveEmployee();
 
                     break;
 
@@ -141,7 +141,7 @@ public class CorpMain {
         company.removeEmployee(id);
     }
 
-    private void retrieveEMployee(){
+    private void retrieveEmployee(){
         String id = readInput("Which Employee do you want to retrieve? (ID): ");
         Employee temp = company.retrieveEmployee(id);
         if (temp != null){
