@@ -155,7 +155,8 @@ public class CorpMain {
     private final int UPDATE_GPA = 3;
     private final int UPDATE_MANAGER_DEGREE = 4;
     private final int UPDATE_DIRECTOR_BENEFIT = 5;
-    private final int FINISH = 6;
+    private final int UPDATE_POSITION = 6;
+    private final int FINISH = 7;
 
     private void updateEmployee(){
 
@@ -167,7 +168,8 @@ public class CorpMain {
                             "3. Update the Intern's GPA" + System.lineSeparator() +
                             "4. Update the Managers Degree" + System.lineSeparator() +
                             "5. Update the Director Benefit" + System.lineSeparator() +
-                            "6. Finished With Updating");
+                            "6. Update the Position" + System.lineSeparator() +
+                            "7. Finished With Updating");
 
             switch (input) {
 
@@ -191,14 +193,36 @@ public class CorpMain {
                     break;
 
                 case UPDATE_MANAGER_DEGREE:
-                    String id4 = readInput("What's the ID of the Manager?");
-                    String degree = readInput("What's the new Degree of the Manager?");
+                    String id4 = readInput("What's the ID of the Employee?");
+                    String degree = readInput("What's the new Degree of the Employee?");
                     company.updateDegree(id4, degree);
                     break;
 
                 case UPDATE_DIRECTOR_BENEFIT:
                     double benefit = readInputDouble("What's the new Director Benefit?");
                     company.setDirectorBenefit(benefit);
+                    break;
+
+                case UPDATE_POSITION:
+                    String id5 = readInput("What's the ID of the Employee?");
+                    String position = readInput("What's the new position of the Employee?");
+
+                    if(position.equalsIgnoreCase("employee")){
+                        company.promoteToEmployee(id5);
+
+                    } else if (position.equalsIgnoreCase("manager")){
+                        String degree2 = readInput("What's the degree of the Employee?");
+                        company.promoteToManager(id5, degree2);
+
+                    } else if (position.equalsIgnoreCase("director")){
+                        String degree2 = readInput("What's the degree of the Employee?");
+                        String director = readInput("What's the department of the Director?");
+                        company.promoteToDirector(id5, degree2, director);
+
+                    } else {
+                        int gpa2 = readInputInt("What's the GPA of the employee?");
+                        company.promoteToIntern(id5, gpa2);
+                    }
                     break;
 
                 case FINISH:

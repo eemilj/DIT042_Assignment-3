@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class ReusaxCorp {
 
 
-    private static double directorBenefit = 5000;
+    private static double directorBenefit;
 
     private ArrayList<Employee> employeeRegister = new ArrayList<>();
 
@@ -39,7 +39,6 @@ public class ReusaxCorp {
         Director newDirector = new Director(name, ID, gs, degree, department);
         employeeRegister.add(newDirector);
     }
-
 
 
     public Employee retrieveEmployee(String ID) {
@@ -123,7 +122,6 @@ public class ReusaxCorp {
             Manager retrievedEmployeeManager = (Manager) retrievedEmployee;
             retrievedEmployeeManager.setDegree(degree);
         }
-
     }
 
     public void updateGpa(String ID, int Gpa){
@@ -132,10 +130,43 @@ public class ReusaxCorp {
             Intern retrievedEmployeeIntern = (Intern) retrievedEmployee;
             retrievedEmployeeIntern.setGpa(Gpa);
         }
-
     }
 
+    public void promoteToEmployee(String id){
+        Employee retrievedEmployee = retrieveEmployee(id);
+        String name = retrievedEmployee.getName();
+        double Salary = retrievedEmployee.getGrossSalary();
+        removeEmployee(id);
+        Employee newEmployee = new Employee(name, id, Salary);
+        employeeRegister.add(newEmployee);
+    }
 
+    public void promoteToManager(String id, String degree){
+        Employee retrievedEmployee = retrieveEmployee(id);
+        String name = retrievedEmployee.getName();
+        double Salary = retrievedEmployee.getGrossSalary();
+        removeEmployee(id);
+        Manager newEmployee = new Manager(name, id, Salary, degree);
+        employeeRegister.add(newEmployee);
+    }
+
+    public void promoteToDirector(String id, String degree, String department){
+        Employee retrievedEmployee = retrieveEmployee(id);
+        String name = retrievedEmployee.getName();
+        double Salary = retrievedEmployee.getGrossSalary();
+        removeEmployee(id);
+        Director newEmployee = new Director(name, id, Salary, degree, department);
+        employeeRegister.add(newEmployee);
+    }
+
+    public void promoteToIntern(String id, int gpa){
+        Employee retrievedEmployee = retrieveEmployee(id);
+        String name = retrievedEmployee.getName();
+        double Salary = retrievedEmployee.getGrossSalary();
+        removeEmployee(id);
+        Intern newEmployee = new Intern(name, id, Salary, gpa);
+        employeeRegister.add(newEmployee);
+    }
 
 
 
