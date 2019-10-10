@@ -6,7 +6,22 @@ import java.util.ArrayList;
 public class ReusaxCorp {
 
 
+    private static double directorBenefit;
+
     private ArrayList<Employee> employeeRegister = new ArrayList<>();
+
+    public void setDirecxtorBenefit(double dirBenifit){
+        this.directorBenefit = dirBenifit;
+
+    }
+    //Getter for director pay
+    public static double getDirectorBenefit(){
+        return directorBenefit;
+    }
+    //Setter for director pay
+    public static void setDirectorBenefit(double endUserInput){
+        directorBenefit = endUserInput;
+    }
 
     public void registerEmployee(String name, String ID, double gs) {
         Employee newEmployee = new Employee(name, ID, gs);
@@ -103,11 +118,6 @@ public class ReusaxCorp {
 
     }
 
-    public void updateDirBenefit(){
-
-
-
-    }
 
 
 

@@ -34,4 +34,9 @@ public class Manager extends Employee {
         return this.managerPay;
     }
 
+    @Override
+    public double getNetSalary(){
+        return managerPay * 0.9;
+    }
+
 }

@@ -179,9 +179,8 @@ public class CorpMain {
                     break;
 
                 case UPDATE_DIRECTOR_BENEFIT:
-                    String id5 = readInput("What's the ID of the Director?");
                     double benefit = readInputDouble("What's the new Director Benefit?");
-                    company.updateDirBenefit(id5, benefit);
+                    company.setDirectorBenefit(benefit);
                     break;
 
                 case FINISH:
