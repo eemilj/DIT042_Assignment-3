@@ -8,10 +8,9 @@ public class Director extends Manager {
     private double dirPay = getGrossSalary() + getManBenefit() + getDirBenefit();
     private double dirBenefit;
 
-    public Director(String name, String id, double grossSalary, String degree, String department, double dirBenefit) {
+    public Director(String name, String id, double grossSalary, String degree, String department) {
         super(name, id, grossSalary,degree);
         this.department = department;
-        this.dirBenefit = getDirBenefit();
 
     }
     public void setDepartment(String endUserInput){

@@ -112,9 +112,27 @@ public class CorpMain {
         String name = readInput("What's the name of the employee?");
         String id = readInput("What's the id of the employee?");
         double salary = Double.parseDouble(readInput("What's the salary of the employee?"));
+        String type = readInput("Is the employee an intern, manager or director?");
 
-        company.registerEmployee(name, id, salary);
+        if(type.equalsIgnoreCase("intern")){
 
+            int gpa = readInputInt("What's the gpa of the intern?");
+            company.registerIntern(name,id,salary,gpa);
+
+        }else if(type.equalsIgnoreCase("manager")){
+
+            String degree = readInput("What's the degree of the manager?");
+            company.registerManager(name, id, salary, degree);
+
+        }else if(type.equalsIgnoreCase("director")){
+
+            String degree = readInput("Whats the degree of the director?");
+            String department = readInput("What's the department of the director?");
+            company.registerDirector(name,id,salary,degree,department);
+
+        }else {
+            company.registerEmployee(name, id, salary);
+        }
         System.out.println("Successfully added " + name );
     }
 
