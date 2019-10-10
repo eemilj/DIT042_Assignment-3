@@ -3,12 +3,14 @@ package corporation;
 public class Manager extends Employee {
 
     private String degree;
-    private double managerPay = grossSalary + getManBenefit();
+    private double managerPay;
     private double manBenefit;
 
     public Manager(String name, String id, double grossSalary, String degree) {
         super(name, id, grossSalary);
         this.degree = degree;
+        manBenefit = getManBenefit();
+        managerPay = getManagerPay();
     }
 
     public void setDegree(String endUserInput){
@@ -16,6 +18,10 @@ public class Manager extends Employee {
     }
     public String getDegree(){
         return this.degree;
+    }
+    public double getManagerPay(){
+       managerPay =  super.grossSalary + this.manBenefit;
+       return managerPay;
     }
 
     public double getManBenefit(){
@@ -27,7 +33,7 @@ public class Manager extends Employee {
         }else if(this.degree.equals("PhD")){
             manBenefit = this.grossSalary*0.35;
         }
-        return manBenefit;
+        return this.manBenefit;
     }
     @Override
     public double getGrossSalary(){

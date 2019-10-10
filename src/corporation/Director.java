@@ -5,7 +5,7 @@ public class Director extends Manager {
 
 
     private String department;
-    private double dirPay = getGrossSalary() + getManBenefit() + ReusaxCorp.getDirectorBenefit();
+    private double dirPay = getGrossSalary()  + ReusaxCorp.getDirectorBenefit();
 
 
     public Director(String name, String id, double grossSalary, String degree, String department) {
