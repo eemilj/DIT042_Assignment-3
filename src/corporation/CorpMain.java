@@ -48,7 +48,7 @@ public class CorpMain {
 
 
                 case NUMBER_OF_EMPLOYEES:
-
+                    calculateEmployeeCount();
                     break;
 
                 case QUIT:
@@ -125,7 +125,11 @@ public class CorpMain {
 
     private void retrieveEMployee(){
         String id = readInput("Which Employee do you want to remove? (ID): ");
-        System.out.println(company.retrieveEmployee(id));
+        Employee temp = company.retrieveEmployee(id);
+        if (temp != null){
+            System.out.println(temp);
+        }
+
     }
 
     private final int UPDATE_NAME = 1;
@@ -142,6 +146,8 @@ public class CorpMain {
                             "3. Finished With Updating");
 
             switch (input) {
+
+                // probably one method with a if state in the foor loop??
                 case UPDATE_NAME:
                     String ID = readInput("What's the id of the employee?");
                     String name = readInput("What's the new name of the employee?");
@@ -176,6 +182,10 @@ public class CorpMain {
         } else {
             System.out.println("Error: Invalid input!");
         }
+    }
+
+    private void calculateEmployeeCount(){
+        System.out.println("The compamy has " + company.getNumberOfEmployees() + " Employees." );
     }
 
 }

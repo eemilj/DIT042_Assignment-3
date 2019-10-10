@@ -20,8 +20,11 @@ public class ReusaxCorp {
                 return employeeRegister.get(i);
             }
         }
+        System.out.println("Error: The Employee with the ID " + ID + "is not registered in the system.");
         return null;
     }
+
+
 
     public boolean removeEmployee (String ID){
         Employee temp = retrieveEmployee(ID);
@@ -61,6 +64,9 @@ public class ReusaxCorp {
         }
     }
 
+
+
+    // probably one method with a if state in the foor loop
     public double calculateNetCost(){
         double cost = 0;
         for (int i = 0; i < employeeRegister.size(); i++){
@@ -77,6 +83,10 @@ public class ReusaxCorp {
             cost += temp;
         }
         return cost;
+    }
+
+    public int getNumberOfEmployees(){
+        return employeeRegister.size();
     }
 
 
