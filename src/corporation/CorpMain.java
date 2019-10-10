@@ -238,10 +238,10 @@ public class CorpMain {
     private void calcualteCosts(){
         String input = readInput("Do you want to calcualte the net or Gross Cost? (Net / Gross)");
 
-        if (input.equals("Net")){
+        if (input.equalsIgnoreCase("Net")){
             double temp = company.calculateNetCost();
             System.out.println("The net cost for salaries in the company is " + temp + " SEK.");
-        } else if (input.equals("Gross")){
+        } else if (input.equalsIgnoreCase("Gross")){
             double temp = company.calculateGrossCost();
             System.out.println("The Gross cost for salaries in the company is " + temp + " SEK.");
         } else {

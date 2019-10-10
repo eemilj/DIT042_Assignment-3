@@ -21,7 +21,7 @@ public class Employee {
         return this.name;
     }
 
-    public String getID() {
+    public String getId() {
         return this.id;
     }
 

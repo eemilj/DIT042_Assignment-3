@@ -10,10 +10,6 @@ public class ReusaxCorp {
 
     private ArrayList<Employee> employeeRegister = new ArrayList<>();
 
-    public void setDirecxtorBenefit(double dirBenifit){
-        this.directorBenefit = dirBenifit;
-
-    }
     //Getter for director pay
     public static double getDirectorBenefit(){
         return directorBenefit;
@@ -23,38 +19,38 @@ public class ReusaxCorp {
         directorBenefit = endUserInput;
     }
 
-    public void registerEmployee(String name, String ID, double gs) {
-        Employee newEmployee = new Employee(name, ID, gs);
+    public void registerEmployee(String name, String id, double gs) {
+        Employee newEmployee = new Employee(name, id, gs);
         employeeRegister.add(newEmployee);
     }
-    public void registerManager(String name, String ID, double gs, String degree){
-        Manager newManager = new Manager(name, ID, gs, degree);
+    public void registerManager(String name, String id, double gs, String degree){
+        Manager newManager = new Manager(name, id, gs, degree);
         employeeRegister.add(newManager);
     }
-    public void registerIntern(String name, String ID, double gs, int gpa){
-        Intern newIntern = new Intern(name, ID, gs, gpa);
+    public void registerIntern(String name, String id, double gs, int gpa){
+        Intern newIntern = new Intern(name, id, gs, gpa);
         employeeRegister.add(newIntern);
     }
-    public void registerDirector(String name, String ID, double gs, String degree, String department){
-        Director newDirector = new Director(name, ID, gs, degree, department);
+    public void registerDirector(String name, String id, double gs, String degree, String department){
+        Director newDirector = new Director(name, id, gs, degree, department);
         employeeRegister.add(newDirector);
     }
 
 
-    public Employee retrieveEmployee(String ID) {
+    public Employee retrieveEmployee(String id) {
         for (int i = 0; i < employeeRegister.size(); i++) {
-            if (employeeRegister.get(i).getID().equals(ID)) {
+            if (employeeRegister.get(i).getId().equals(id)) {
                 return employeeRegister.get(i);
             }
         }
-        System.out.println("Error: The Employee with the ID " + ID + "is not registered in the system.");
+        System.out.println("Error: The Employee with the id " + id + "is not registered in the system.");
         return null;
     }
 
 
 
-    public boolean removeEmployee (String ID){
-        Employee temp = retrieveEmployee(ID);
+    public boolean removeEmployee (String id){
+        Employee temp = retrieveEmployee(id);
         if (temp != null){
             employeeRegister.remove(temp);
             return true;
@@ -76,16 +72,16 @@ public class ReusaxCorp {
         return expenses;
     }
     //Method to update the name of an employee
-    public void updateEmployeeName(String ID, String name){
-        Employee retrievedEmployee = retrieveEmployee(ID);
+    public void updateEmployeeName(String id, String name){
+        Employee retrievedEmployee = retrieveEmployee(id);
         if (retrievedEmployee != null){
             retrievedEmployee.setName(name);
         }
 
     }
     //Method to update the Gross Salary of an employee
-    public void updateEmployeeSalary(String ID, double salary){
-        Employee retrievedEmployee = retrieveEmployee(ID);
+    public void updateEmployeeSalary(String id, double salary){
+        Employee retrievedEmployee = retrieveEmployee(id);
         if (retrievedEmployee != null){
             retrievedEmployee.setGrossSalary(salary);
         }
@@ -116,16 +112,16 @@ public class ReusaxCorp {
         return employeeRegister.size();
     }
 
-    public void updateDegree(String ID, String degree){
-        Employee retrievedEmployee = retrieveEmployee(ID);
+    public void updateDegree(String id, String degree){
+        Employee retrievedEmployee = retrieveEmployee(id);
         if(retrievedEmployee != null && retrievedEmployee instanceof Manager) {
             Manager retrievedEmployeeManager = (Manager) retrievedEmployee;
             retrievedEmployeeManager.setDegree(degree);
         }
     }
 
-    public void updateGpa(String ID, int Gpa){
-        Employee retrievedEmployee = retrieveEmployee(ID);
+    public void updateGpa(String id, int Gpa){
+        Employee retrievedEmployee = retrieveEmployee(id);
         if(retrievedEmployee != null && retrievedEmployee instanceof Intern){
             Intern retrievedEmployeeIntern = (Intern) retrievedEmployee;
             retrievedEmployeeIntern.setGpa(Gpa);
@@ -167,9 +163,6 @@ public class ReusaxCorp {
         Intern newEmployee = new Intern(name, id, Salary, gpa);
         employeeRegister.add(newEmployee);
     }
-
-
-
  }
 
 

@@ -27,11 +27,11 @@ public class Manager extends Employee {
 
     public void setManBenefit(){
 
-        if(this.degree.equals("BSc")){
+        if(this.degree.equalsIgnoreCase("BSc")){
             manBenefit = this.grossSalary*0.1;
-        }else if(this.degree.equals("MSc")){
+        }else if(this.degree.equalsIgnoreCase("MSc")){
             manBenefit = this.grossSalary*0.2;
-        }else if(this.degree.equals("PhD")){
+        }else if(this.degree.equalsIgnoreCase("PhD")){
             manBenefit = this.grossSalary*0.35;
         }
     }
