@@ -61,6 +61,24 @@ public class ReusaxCorp {
         }
     }
 
+    public double calculateNetCost(){
+        double cost = 0;
+        for (int i = 0; i < employeeRegister.size(); i++){
+            double temp = employeeRegister.get(i).getNetSalary();
+            cost += temp;
+        }
+        return cost;
+    }
+
+    public double calculateGrossCost(){
+        double cost = 0;
+        for (int i = 0; i < employeeRegister.size(); i++){
+            double temp = employeeRegister.get(i).getGrossSalary();
+            cost += temp;
+        }
+        return cost;
+    }
+
 
 
 

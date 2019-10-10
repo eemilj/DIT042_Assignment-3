@@ -42,8 +42,7 @@ public class CorpMain {
                     break;
 
                 case CALCULATE_EXPENSES:
-
-
+                    calcualteCosts();
                     break;
 
 
@@ -67,7 +66,7 @@ public class CorpMain {
             System.out.println("2. Remove an employee");
             System.out.println("3. Retrieve an employee");
             System.out.println("4. Update employee information");
-            System.out.println("5. Calculate Net expenses");
+            System.out.println("5. Calculate expenses");
             System.out.println("6. Retrieve amount of employees");
             System.out.println("7. QUIT");
 
@@ -133,7 +132,7 @@ public class CorpMain {
     private final int UPDATE_SALARY = 2;
     private final int FINISH = 3;
 
-    public void updateEmployee(){
+    private void updateEmployee(){
 
         int input;
         do {
@@ -163,4 +162,20 @@ public class CorpMain {
             }
         }while(input != QUIT);
     }
+
+
+    private void calcualteCosts(){
+        String input = readInput("Do you want to calcualte the net or Gross Cost? (Net / Gross)");
+
+        if (input.equals("Net")){
+            double temp = company.calculateNetCost();
+            System.out.println("The net cost for salaries in the company is " + temp + " SEK.");
+        } else if (input.equals("Gross")){
+            double temp = company.calculateGrossCost();
+            System.out.println("The Gross cost for salaries in the company is " + temp + " SEK.");
+        } else {
+            System.out.println("Error: Invalid input!");
+        }
+    }
+
 }
