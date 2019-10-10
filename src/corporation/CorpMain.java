@@ -169,19 +169,19 @@ public class CorpMain {
                 case UPDATE_GPA:
                     String id3 = readInput("What's the ID of the Intern?");
                     int gpa = readInputInt("What's the new GPA of the Intern?");
-                    company.Gpa(id3, gpa);
+                    company.updateGpa(id3, gpa);
                     break;
 
                 case UPDATE_MANAGER_DEGREE:
                     String id4 = readInput("What's the ID of the Manager?");
                     String degree = readInput("What's the new Degree of the Manager?");
-                    company.Degree(id4, degree);
+                    company.updateDegree(id4, degree);
                     break;
 
                 case UPDATE_DIRECTOR_BENEFIT:
                     String id5 = readInput("What's the ID of the Director?");
                     double benefit = readInputDouble("What's the new Director Benefit?");
-                    company.DirBenefit(id5, benefit);
+                    company.updateDirBenefit(id5, benefit);
                     break;
 
                 case FINISH:
