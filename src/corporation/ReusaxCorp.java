@@ -99,7 +99,11 @@ public class ReusaxCorp {
     }
 
     public void updateGpa(String ID, int Gpa){
-
+        Employee retrievedEmployee = retrieveEmployee(ID);
+        if(retrievedEmployee != null && retrievedEmployee instanceof Intern){
+            Intern retrievedEmployeeIntern = (Intern) retrievedEmployee;
+            retrievedEmployeeIntern.setGpa(Gpa);
+        }
 
     }
 

@@ -15,8 +15,8 @@ public class Intern extends Employee {
         return this.gpa;
     }
 
-    public void setGpa(String endUserInput){
-        this.gpa = Integer.parseInt(endUserInput);
+    public void setGpa(int endUserInput){
+        this.gpa = endUserInput;
     }
 
     public double getInternBenefit(){
