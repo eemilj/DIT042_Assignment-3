@@ -134,7 +134,10 @@ public class CorpMain {
 
     private final int UPDATE_NAME = 1;
     private final int UPDATE_SALARY = 2;
-    private final int FINISH = 3;
+    private final int UPDATE_GPA = 3;
+    private final int UPDATE_MANAGER_DEGREE = 4;
+    private final int UPDATE_DIRECTOR_BENEFIT = 5;
+    private final int FINISH = 6;
 
     private void updateEmployee(){
 
@@ -143,25 +146,46 @@ public class CorpMain {
             input = readInputInt("What do you want to update?" + System.lineSeparator() +
                             "1. Update Name" + System.lineSeparator() +
                             "2. Update Salary" + System.lineSeparator() +
-                            "3. Finished With Updating");
+                            "3. Update the Intern's GPA" + System.lineSeparator() +
+                            "4. Update the Managers Degree" + System.lineSeparator() +
+                            "5. Update the Director Benefit" + System.lineSeparator() +
+                            "6. Finished With Updating");
 
             switch (input) {
 
                 // probably one method with a if state in the foor loop??
                 case UPDATE_NAME:
-                    String ID = readInput("What's the id of the employee?");
+                    String id = readInput("What's the ID of the employee?");
                     String name = readInput("What's the new name of the employee?");
-                    company.updateEmployeeName(ID, name);
+                    company.updateEmployeeName(id, name);
                     break;
 
                 case UPDATE_SALARY:
-                    String ID2 = readInput("What's the id of the employee?");
+                    String id2 = readInput("What's the ID of the employee?");
                     double salary = readInputDouble("What's the new salary of the employee?");
-                    company.updateEmployeeSalary(ID2, salary);
+                    company.updateEmployeeSalary(id2, salary);
+                    break;
+
+                case UPDATE_GPA:
+                    String id3 = readInput("What's the ID of the Intern?");
+                    int gpa = readInputInt("What's the new GPA of the Intern?");
+                    company.Gpa(id3, gpa);
+                    break;
+
+                case UPDATE_MANAGER_DEGREE:
+                    String id4 = readInput("What's the ID of the Manager?");
+                    String degree = readInput("What's the new Degree of the Manager?");
+                    company.Degree(id4, degree);
+                    break;
+
+                case UPDATE_DIRECTOR_BENEFIT:
+                    String id5 = readInput("What's the ID of the Director?");
+                    double benefit = readInputDouble("What's the new Director Benefit?");
+                    company.DirBenefit(id5, benefit);
                     break;
 
                 case FINISH:
-                    System.out.println("Changes are updated!" + System.lineSeparator());
+                    System.out.println("Your changes are updated!" + System.lineSeparator());
                     return;
 
                 default:
