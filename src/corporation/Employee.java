@@ -40,8 +40,8 @@ public class Employee {
 
     //Method to calculate and return netSalary
     public double getNetSalary() {
-        double netSalary = this.grossSalary - (this.grossSalary * 0.1);
-        return netSalary;
+
+        return getGrossSalary() * 0.9;
     }
 
     //Method to return print message
