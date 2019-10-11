@@ -10,16 +10,14 @@ public class Manager extends Employee {
         this.degree = degree;
     }
 
+    //setter for manager/directors degree
     public void setDegree(String endUserInput) {
         this.degree = endUserInput;
         System.out.println(this.degree);
     }
 
-    public String getDegree() {
-        return this.degree;
-    }
 
-
+    //ovverrides for correct salary
     @Override
     public double getGrossSalary() {
 
