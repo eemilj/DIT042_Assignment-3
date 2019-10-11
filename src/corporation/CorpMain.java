@@ -60,6 +60,7 @@ public class CorpMain {
         }while(input != QUIT);
     }
         private void printMenuOptions(){
+            System.out.println();
             System.out.println("Welcome to the corporation!");
             System.out.println();
             System.out.println("1. Register an employee");
@@ -126,7 +127,7 @@ public class CorpMain {
 
         }else if(type.equalsIgnoreCase("director")){
 
-            String degree = readInput("Whats the degree of the director?");
+            String degree = readInput("What's the degree of the director?");
             String department = readInput("What's the department of the director?");
             company.registerDirector(name,id,salary,degree,department);
 
@@ -166,7 +167,7 @@ public class CorpMain {
                             "1. Update Name" + System.lineSeparator() +
                             "2. Update Salary" + System.lineSeparator() +
                             "3. Update the Intern's GPA" + System.lineSeparator() +
-                            "4. Update the Managers Degree" + System.lineSeparator() +
+                            "4. Update the employees' Degree" + System.lineSeparator() +
                             "5. Update the Director Benefit" + System.lineSeparator() +
                             "6. Update the Position" + System.lineSeparator() +
                             "7. Finished With Updating");

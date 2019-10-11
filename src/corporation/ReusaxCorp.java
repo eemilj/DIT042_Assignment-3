@@ -24,15 +24,15 @@ public class ReusaxCorp {
         employeeRegister.add(newEmployee);
     }
     public void registerManager(String name, String id, double gs, String degree){
-        Manager newManager = new Manager(name, id, gs, degree);
+        Employee newManager = new Manager(name, id, gs, degree);
         employeeRegister.add(newManager);
     }
     public void registerIntern(String name, String id, double gs, int gpa){
-        Intern newIntern = new Intern(name, id, gs, gpa);
+        Employee newIntern = new Intern(name, id, gs, gpa);
         employeeRegister.add(newIntern);
     }
     public void registerDirector(String name, String id, double gs, String degree, String department){
-        Director newDirector = new Director(name, id, gs, degree, department);
+        Employee newDirector = new Director(name, id, gs, degree, department);
         employeeRegister.add(newDirector);
     }
 
@@ -142,7 +142,7 @@ public class ReusaxCorp {
         String name = retrievedEmployee.getName();
         double Salary = retrievedEmployee.getGrossSalary();
         removeEmployee(id);
-        Manager newEmployee = new Manager(name, id, Salary, degree);
+        Employee newEmployee = new Manager(name, id, Salary, degree);
         employeeRegister.add(newEmployee);
     }
 
@@ -151,7 +151,7 @@ public class ReusaxCorp {
         String name = retrievedEmployee.getName();
         double Salary = retrievedEmployee.getGrossSalary();
         removeEmployee(id);
-        Director newEmployee = new Director(name, id, Salary, degree, department);
+        Employee newEmployee = new Director(name, id, Salary, degree, department);
         employeeRegister.add(newEmployee);
     }
 
@@ -160,7 +160,7 @@ public class ReusaxCorp {
         String name = retrievedEmployee.getName();
         double Salary = retrievedEmployee.getGrossSalary();
         removeEmployee(id);
-        Intern newEmployee = new Intern(name, id, Salary, gpa);
+        Employee newEmployee = new Intern(name, id, Salary, gpa);
         employeeRegister.add(newEmployee);
     }
  }

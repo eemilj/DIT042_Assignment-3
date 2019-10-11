@@ -9,11 +9,15 @@ public class Director extends Manager {
 
 
     public Director(String name, String id, double grossSalary, String degree, String department) {
-        super(name, id, grossSalary,degree);
+        super(name, id, grossSalary, degree);
         this.department = department;
         setDirPay();
-
     }
+    public void setDegree(String userInput){
+        super.setDegree(userInput);
+        setDirPay();
+    }
+
     public void setDirPay(){
         dirPay =  super.getGrossSalary() + ReusaxCorp.getDirectorBenefit();
 
