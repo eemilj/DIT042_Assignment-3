@@ -10,12 +10,11 @@ public class ReusaxCorp {
 
     private ArrayList<Employee> employeeRegister = new ArrayList<>();
 
-    //Getter for director pay
-    public static double getDirectorBenefit(){
-        return directorBenefit;
-    }
+
     //Setter for director pay
-    public static void setDirectorBenefit(double endUserInput){ directorBenefit = endUserInput; }
+    public void setDirectorBenefit(double endUserInput){
+        Director.dirBenefit = (endUserInput);
+    }
 
     public void registerEmployee(String name, String id, double gs) {
         Employee newEmployee = new Employee(name, id, gs);

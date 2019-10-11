@@ -2,30 +2,17 @@ package corporation;
 
 public class Director extends Manager {
 
-
-
-    private String department;
-
-
+    String department;
+    protected static double dirBenefit;
 
     public Director(String name, String id, double grossSalary, String degree, String department) {
         super(name, id, grossSalary,degree);
         this.department = department;
-
-
     }
 
-    public void setDepartment(String endUserInput){
-        this.department = endUserInput;
-    }
-
-    public String getDepartment(){
-        return this.department;
-    }
     @Override
     public double getGrossSalary(){
-
-        return super.getGrossSalary() + ReusaxCorp.getDirectorBenefit();
+        return super.getGrossSalary() + dirBenefit;
     }
 
     @Override
