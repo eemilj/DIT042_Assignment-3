@@ -8,12 +8,7 @@ public class ReusaxCorp {
 
     private ArrayList<Employee> employeeRegister = new ArrayList<>();
 
-
-    //Setter for director pay
-    public void setDirectorBenefit(double endUserInput) {
-        Director.dirBenefit = (endUserInput);
-    }
-
+    //Methods to create employee, manager, intern, director
     public void registerEmployee(String name, String id, double gs) {
         Employee newEmployee = new Employee(name, id, gs);
         employeeRegister.add(newEmployee);
@@ -34,7 +29,15 @@ public class ReusaxCorp {
         employeeRegister.add(newDirector);
     }
 
+    //Method to remove employee
+    public void removeEmployee(String id) {
+        Employee temp = retrieveEmployee(id);
+        if (temp != null) {
+            employeeRegister.remove(temp);
+        }
+    }
 
+    //Method to retrieve a employee
     public Employee retrieveEmployee(String id) {
         for (int i = 0; i < employeeRegister.size(); i++) {
             if (employeeRegister.get(i).getId().equals(id)) {
@@ -45,15 +48,7 @@ public class ReusaxCorp {
         return null;
     }
 
-
-    public void removeEmployee(String id) {
-        Employee temp = retrieveEmployee(id);
-        if (temp != null) {
-            employeeRegister.remove(temp);
-        }
-    }
-
-    //Method to update the name of an employee
+    //Methods to update the name, salary, degree and GPA
     public void updateEmployeeName(String id, String name) {
         Employee retrievedEmployee = retrieveEmployee(id);
         if (retrievedEmployee != null) {
@@ -62,34 +57,11 @@ public class ReusaxCorp {
 
     }
 
-    //Method to update the Gross Salary of an employee
     public void updateEmployeeSalary(String id, double salary) {
         Employee retrievedEmployee = retrieveEmployee(id);
         if (retrievedEmployee != null) {
             retrievedEmployee.setGrossSalary(salary);
         }
-    }
-
-    public double getExpenses(String expenses) {
-        double cost = 0;
-        if (expenses.equalsIgnoreCase("net")) {
-            for (int i = 0; i < employeeRegister.size(); i++) {
-                double temp = employeeRegister.get(i).getNetSalary();
-                cost += temp;
-            }
-
-        } else if (expenses.equalsIgnoreCase("gross")) {
-            for (int i = 0; i < employeeRegister.size(); i++) {
-                double temp = employeeRegister.get(i).getGrossSalary();
-                cost += temp;
-            }
-        }
-
-        return cost;
-    }
-
-    public int getNumberOfEmployees() {
-        return employeeRegister.size();
     }
 
     public void updateDegree(String id, String degree) {
@@ -108,6 +80,7 @@ public class ReusaxCorp {
         }
     }
 
+    //Methods to promote employees to a different position
     public void promoteToEmployee(String id) {
         Employee retrievedEmployee = retrieveEmployee(id);
         String name = retrievedEmployee.getName();
@@ -143,6 +116,37 @@ public class ReusaxCorp {
         Employee newEmployee = new Intern(name, id, Salary, gpa);
         employeeRegister.add(newEmployee);
     }
+
+    //Method to get the expenses of the employees of the company
+    public double getExpenses(String expenses) {
+        double cost = 0;
+        if (expenses.equalsIgnoreCase("net")) {
+            for (int i = 0; i < employeeRegister.size(); i++) {
+                double temp = employeeRegister.get(i).getNetSalary();
+                cost += temp;
+            }
+
+        } else if (expenses.equalsIgnoreCase("gross")) {
+            for (int i = 0; i < employeeRegister.size(); i++) {
+                double temp = employeeRegister.get(i).getGrossSalary();
+                cost += temp;
+            }
+        }
+
+        return cost;
+    }
+
+    //Method to retrieve the current number of employees registered
+    public int getNumberOfEmployees() {
+        return employeeRegister.size();
+    }
+
+    //Setter for director pay
+    public void setDirectorBenefit(double endUserInput) {
+        Director.dirBenefit = (endUserInput);
+    }
+
+
 }
 
 
