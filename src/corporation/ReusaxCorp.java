@@ -59,7 +59,6 @@ public class ReusaxCorp {
         if (retrievedEmployee != null) {
             retrievedEmployee.setName(name);
         }
-
     }
 
     //Method to update the Gross Salary of an employee
