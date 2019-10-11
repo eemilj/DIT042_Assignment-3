@@ -10,11 +10,12 @@ public class Intern extends Employee {
 
     }
 
+    //setter for interns gpa
     public void setGpa(int endUserInput) {
         this.gpa = endUserInput;
     }
 
-
+    //getter for the intern benefit
     public double getInternBenefit() {
 
         double internBenefit;
@@ -29,6 +30,7 @@ public class Intern extends Employee {
         return internBenefit;
     }
 
+    //overrides for net and gross salary to get correct salary
     @Override
     public double getGrossSalary() {
         return super.getGrossSalary() + getInternBenefit();
@@ -36,7 +38,6 @@ public class Intern extends Employee {
 
     @Override
     public double getNetSalary() {
-        double salary = getGrossSalary();
-        return salary * 0.9;
+        return (getGrossSalary()) * 0.9;
     }
 }

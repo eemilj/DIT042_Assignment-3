@@ -3,13 +3,14 @@ package corporation;
 public class Director extends Manager {
 
     String department;
-    protected static double dirBenefit;
+    protected static double dirBenefit; //storing the directors benefit in a static variable
 
     public Director(String name, String id, double grossSalary, String degree, String department) {
         super(name, id, grossSalary, degree);
         this.department = department;
     }
 
+    //overrides for correct salary
     @Override
     public double getGrossSalary() {
         return super.getGrossSalary() + dirBenefit;
