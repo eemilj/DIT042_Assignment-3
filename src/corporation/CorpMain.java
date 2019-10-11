@@ -41,7 +41,7 @@ public class CorpMain {
                     break;
 
                 case CALCULATE_EXPENSES:
-                    calcualteCosts();
+                    calculateCosts();
                     break;
 
                 case NUMBER_OF_EMPLOYEES:
@@ -224,28 +224,24 @@ public class CorpMain {
         }while(input != QUIT);
     }
 
-    private void calcualteCosts(){
-        String input = readInput("Do you want to calcualte the net or Gross Cost? (Net / Gross)");
-
-        if (input.equalsIgnoreCase("Net")){
-            double temp = company.calculateNetCost();
-            System.out.println("The net cost for salaries in the company is " + temp + " SEK.");
-        } else if (input.equalsIgnoreCase("Gross")){
-            double temp = company.calculateGrossCost();
-            System.out.println("The Gross cost for salaries in the company is " + temp + " SEK.");
+    private void calculateCosts(){
+        String input = readInput("Do you want to calculate the net or Gross Cost? (Net / Gross)");
+        if ( input.equalsIgnoreCase("net") || input.equalsIgnoreCase("gross")){
+            System.out.println("The " + input + " cost for the company is " + company.getExpenses(input) + " SEK.");
         } else {
-            System.out.println("Error: Invalid input!");
+            System.out.println("Error: Invalid Input!");
         }
+
     }
 
     private void calculateEmployeeCount(){
-        System.out.println("The compamy has " + company.getNumberOfEmployees() + " Employees." );
+        System.out.println("The company has " + company.getNumberOfEmployees() + " Employees." );
     }
 
     private void updateDirectorBenefit(){
         double benefit = readInputDouble("What's the new Director Benefit?");
         company.setDirectorBenefit(benefit);
-        System.out.println("The new Director Benefit is now: " + benefit + " kr");
+        System.out.println("The new Director Benefit is now: " + benefit + " SEK.");
     }
 
 }

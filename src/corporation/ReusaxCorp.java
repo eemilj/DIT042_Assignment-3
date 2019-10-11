@@ -46,28 +46,13 @@ public class ReusaxCorp {
 
 
 
-    public boolean removeEmployee (String id){
+    public void removeEmployee (String id){
         Employee temp = retrieveEmployee(id);
         if (temp != null){
             employeeRegister.remove(temp);
-            return true;
         }
-        return false;
     }
 
-    public double getExpenses(String input){
-
-        double expenses = 0;
-
-
-
-        for (int i = 0; i < employeeRegister.size(); i++){
-            double tempExpense = employeeRegister.get(i).getNetSalary();
-            expenses += tempExpense;
-        }
-
-        return expenses;
-    }
     //Method to update the name of an employee
     public void updateEmployeeName(String id, String name){
         Employee retrievedEmployee = retrieveEmployee(id);
@@ -84,24 +69,21 @@ public class ReusaxCorp {
         }
     }
 
-
-
-    // probably one method with a if state in the foor loop
-    public double calculateNetCost(){
+    public double getExpenses(String expenses){
         double cost = 0;
-        for (int i = 0; i < employeeRegister.size(); i++){
-            double temp = employeeRegister.get(i).getNetSalary();
-            cost += temp;
-        }
-        return cost;
-    }
+        if (expenses.equalsIgnoreCase("net")){
+            for (int i = 0; i < employeeRegister.size(); i++){
+                double temp = employeeRegister.get(i).getNetSalary();
+                cost += temp;
+            }
 
-    public double calculateGrossCost(){
-        double cost = 0;
-        for (int i = 0; i < employeeRegister.size(); i++){
-            double temp = employeeRegister.get(i).getGrossSalary();
-            cost += temp;
+        } else if (expenses.equalsIgnoreCase("gross")){
+            for (int i = 0; i < employeeRegister.size(); i++){
+                double temp = employeeRegister.get(i).getGrossSalary();
+                cost += temp;
+            }
         }
+
         return cost;
     }
 
