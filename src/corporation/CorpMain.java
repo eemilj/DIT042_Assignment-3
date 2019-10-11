@@ -15,6 +15,7 @@ public class CorpMain {
     private final int UPDATE_DIRECTOR_BENEFIT = 7;
     private final int QUIT = 8;
 
+
     public void run(){
         int input;
 
