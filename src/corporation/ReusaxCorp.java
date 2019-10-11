@@ -15,9 +15,7 @@ public class ReusaxCorp {
         return directorBenefit;
     }
     //Setter for director pay
-    public static void setDirectorBenefit(double endUserInput){
-        directorBenefit = endUserInput;
-    }
+    public static void setDirectorBenefit(double endUserInput){ directorBenefit = endUserInput; }
 
     public void registerEmployee(String name, String id, double gs) {
         Employee newEmployee = new Employee(name, id, gs);

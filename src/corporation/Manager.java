@@ -17,6 +17,8 @@ public class Manager extends Employee {
         this.degree = endUserInput;
         setManBenefit();
         setManagerPay();
+
+        System.out.println(this.degree);
     }
     public String getDegree(){
         return this.degree;
@@ -35,9 +37,11 @@ public class Manager extends Employee {
             manBenefit = this.grossSalary*0.35;
         }
     }
+
     public void setManagerPay(){
         managerPay = super.grossSalary + this.manBenefit;
     }
+
     @Override
     public double getGrossSalary(){
         return this.managerPay;

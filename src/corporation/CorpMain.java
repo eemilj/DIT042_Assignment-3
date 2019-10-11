@@ -161,6 +161,7 @@ public class CorpMain {
     private void updateEmployee(){
 
         int input;
+        String id;
         do {
             input = readInputInt("What do you want to update?" + System.lineSeparator() +
                             "1. Update Name" + System.lineSeparator() +
@@ -171,19 +172,21 @@ public class CorpMain {
                             "6. Update the Position" + System.lineSeparator() +
                             "7. Finished With Updating");
 
+
+
             switch (input) {
 
                 // probably one method with a if state in the foor loop??
                 case UPDATE_NAME:
-                    String id = readInput("What's the ID of the employee?");
+                    id = readInput("What's the ID of the employee?");
                     String name = readInput("What's the new name of the employee?");
                     company.updateEmployeeName(id, name);
                     break;
 
                 case UPDATE_SALARY:
-                    String id2 = readInput("What's the ID of the employee?");
+                    id = readInput("What's the ID of the employee?");
                     double salary = readInputDouble("What's the new salary of the employee?");
-                    company.updateEmployeeSalary(id2, salary);
+                    company.updateEmployeeSalary(id, salary);
                     break;
 
                 case UPDATE_GPA:
