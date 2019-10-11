@@ -6,7 +6,6 @@ import java.util.ArrayList;
 public class ReusaxCorp {
 
 
-    private static double directorBenefit;
 
     private ArrayList<Employee> employeeRegister = new ArrayList<>();
 
