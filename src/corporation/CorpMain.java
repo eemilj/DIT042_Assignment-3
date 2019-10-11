@@ -1,4 +1,5 @@
 package corporation;
+
 import java.util.Scanner;
 
 public class CorpMain {
@@ -16,7 +17,7 @@ public class CorpMain {
     private final int QUIT = 8;
 
 
-    public void run(){
+    public void run() {
         int input;
 
         do {
@@ -58,26 +59,28 @@ public class CorpMain {
 
                 default:
             }
-        }while(input != QUIT);
+        } while (input != QUIT);
     }
-        private void printMenuOptions(){
-            System.out.println();
-            System.out.println("Welcome to the corporation!");
-            System.out.println();
-            System.out.println("1. Register an employee");
-            System.out.println("2. Remove an employee");
-            System.out.println("3. Retrieve an employee");
-            System.out.println("4. Update employee information");
-            System.out.println("5. Calculate expenses");
-            System.out.println("6. Retrieve amount of employees");
-            System.out.println("7. Update the Director Benefit");
-            System.out.println("8. QUIT");
 
-        }
-        public static void main(String[] args){
+    private void printMenuOptions() {
+        System.out.println();
+        System.out.println("Welcome to the corporation!");
+        System.out.println();
+        System.out.println("1. Register an employee");
+        System.out.println("2. Remove an employee");
+        System.out.println("3. Retrieve an employee");
+        System.out.println("4. Update employee information");
+        System.out.println("5. Calculate expenses");
+        System.out.println("6. Retrieve amount of employees");
+        System.out.println("7. Update the Director Benefit");
+        System.out.println("8. QUIT");
+
+    }
+
+    public static void main(String[] args) {
         CorpMain program = new CorpMain();
         program.run();
-        }
+    }
 
     private String readInput(String userMessage) {
         String userInput;
@@ -105,47 +108,48 @@ public class CorpMain {
         return userInput;
     }
 
-    private void registerEmployee (){
+    private void registerEmployee() {
         String name = readInput("What's the name of the employee?");
         String id = readInput("What's the id of the employee?");
         double salary = readInputDouble("What's the salary of the employee?");
         String type = readInput("Is the employee an intern, manager or director?");
 
-        if(type.equalsIgnoreCase("intern")){
+        if (type.equalsIgnoreCase("intern")) {
 
             int gpa = readInputInt("What's the gpa of the intern?");
-            company.registerIntern(name,id,salary,gpa);
+            company.registerIntern(name, id, salary, gpa);
 
-        }else if(type.equalsIgnoreCase("manager")){
+        } else if (type.equalsIgnoreCase("manager")) {
 
             String degree = readInput("What's the degree of the manager?");
             company.registerManager(name, id, salary, degree);
 
-        }else if(type.equalsIgnoreCase("director")){
+        } else if (type.equalsIgnoreCase("director")) {
 
             String degree = readInput("What's the degree of the director?");
             String department = readInput("What's the department of the director?");
-            company.registerDirector(name,id,salary,degree,department);
+            company.registerDirector(name, id, salary, degree, department);
 
-        }else {
+        } else {
             company.registerEmployee(name, id, salary);
         }
-        System.out.println("Successfully added " + name );
+        System.out.println("Successfully added " + name);
     }
 
-    private void removeEmployee(){
+    private void removeEmployee() {
         String id = readInput("Which Employee do you want to remove? (ID): ");
         company.removeEmployee(id);
     }
 
-    private void retrieveEmployee(){
+    private void retrieveEmployee() {
         String id = readInput("Which Employee do you want to retrieve? (ID): ");
         Employee temp = company.retrieveEmployee(id);
-        if (temp != null){
+        if (temp != null) {
             System.out.println(temp);
         }
 
     }
+
     //Switch Case to update stuff inside the employees-objects
     private final int UPDATE_NAME = 1;
     private final int UPDATE_SALARY = 2;
@@ -154,19 +158,19 @@ public class CorpMain {
     private final int UPDATE_POSITION = 5;
     private final int FINISH = 7;
 
-    private void updateEmployee(){
+    private void updateEmployee() {
 
         int input;
         String id;
 
         do {
             input = readInputInt("What do you want to update?" + System.lineSeparator() +
-                            "1. Update Name" + System.lineSeparator() +
-                            "2. Update Salary" + System.lineSeparator() +
-                            "3. Update the Intern's GPA" + System.lineSeparator() +
-                            "4. Update the Degree " + System.lineSeparator() +
-                            "6. Update the Position" + System.lineSeparator() +
-                            "7. Finished With Updating");
+                    "1. Update Name" + System.lineSeparator() +
+                    "2. Update Salary" + System.lineSeparator() +
+                    "3. Update the Intern's GPA" + System.lineSeparator() +
+                    "4. Update the Degree " + System.lineSeparator() +
+                    "6. Update the Position" + System.lineSeparator() +
+                    "7. Finished With Updating");
 
             switch (input) {
                 case UPDATE_NAME:
@@ -197,14 +201,14 @@ public class CorpMain {
                     id = readInput("What's the ID of the Employee?");
                     String position = readInput("What's the new position of the Employee?");
 
-                    if(position.equalsIgnoreCase("employee")){
+                    if (position.equalsIgnoreCase("employee")) {
                         company.promoteToEmployee(id);
 
-                    } else if (position.equalsIgnoreCase("manager")){
+                    } else if (position.equalsIgnoreCase("manager")) {
                         String degree2 = readInput("What's the degree of the Employee?");
                         company.promoteToManager(id, degree2);
 
-                    } else if (position.equalsIgnoreCase("director")){
+                    } else if (position.equalsIgnoreCase("director")) {
                         String degree2 = readInput("What's the degree of the Employee?");
                         String director = readInput("What's the department of the Director?");
                         company.promoteToDirector(id, degree2, director);
@@ -221,12 +225,12 @@ public class CorpMain {
 
                 default:
             }
-        }while(input != QUIT);
+        } while (input != QUIT);
     }
 
-    private void calculateCosts(){
+    private void calculateCosts() {
         String input = readInput("Do you want to calculate the net or Gross Cost? (Net / Gross)");
-        if ( input.equalsIgnoreCase("net") || input.equalsIgnoreCase("gross")){
+        if (input.equalsIgnoreCase("net") || input.equalsIgnoreCase("gross")) {
             System.out.println("The " + input + " cost for the company is " + company.getExpenses(input) + " SEK.");
         } else {
             System.out.println("Error: Invalid Input!");
@@ -234,11 +238,11 @@ public class CorpMain {
 
     }
 
-    private void calculateEmployeeCount(){
-        System.out.println("The company has " + company.getNumberOfEmployees() + " Employees." );
+    private void calculateEmployeeCount() {
+        System.out.println("The company has " + company.getNumberOfEmployees() + " Employees.");
     }
 
-    private void updateDirectorBenefit(){
+    private void updateDirectorBenefit() {
         double benefit = readInputDouble("What's the new Director Benefit?");
         company.setDirectorBenefit(benefit);
         System.out.println("The new Director Benefit is now: " + benefit + " SEK.");
